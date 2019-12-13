@@ -40,29 +40,49 @@ class Airplane {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-// class Person {
+class Person {
+  constructor (name, age) {
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
+  }
 
-// }
+  eat (someFood) {
+    if (this.stomach.length < 10) {
+      this.stomach.push(someFood);
+    }
+  };
 
-function Person(name, age) {
-  this.name = name;
-  this.age = age;
-  this.stomach = [];
+  poop () {
+    this.stomach.length = 0;
+  }
+
+  toString () {
+    return `${this.name}, ${this.age}`;
+  }
 }
 
-Person.prototype.eat = function(someFood) {
-  if (this.stomach.length < 10) {
-    this.stomach.push(someFood);
-  }
-};
+//---Old Code---
+// function Person(name, age) {
+//   this.name = name;
+//   this.age = age;
+//   this.stomach = [];
+// }
 
-Person.prototype.poop = function() {
-  this.stomach.length = 0;
-};
+// Person.prototype.eat = function(someFood) {
+//   if (this.stomach.length < 10) {
+//     this.stomach.push(someFood);
+//   }
+// };
 
-Person.prototype.toString = function() {
-  return `${this.name}, ${this.age}`;
-};
+// Person.prototype.poop = function() {
+//   this.stomach.length = 0;
+// };
+
+// Person.prototype.toString = function() {
+//   return `${this.name}, ${this.age}`;
+// };
+///---Old Code---
 
 /*
   TASK 2
@@ -78,25 +98,40 @@ Person.prototype.toString = function() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-// class Car {
+class Car {
+  constructor (model, milesPerGallon) {
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
+  }
 
+  fill (gallons) {
+    this.tank += gallons;
+  };
+
+  drive (distance) {
+    this.odometer += distance;
+    this.tank = this.odometer / 10 / 2;
+  };
+}
+// ---Old Code---
+// function Car(model, milesPerGallon) {
+//   this.model = model;
+//   this.milesPerGallon = milesPerGallon;
+//   this.tank = 0;
+//   this.odometer = 0;
 // }
 
-function Car(model, milesPerGallon) {
-  this.model = model;
-  this.milesPerGallon = milesPerGallon;
-  this.tank = 0;
-  this.odometer = 0;
-}
+// Car.prototype.fill = function(gallons) {
+//   this.tank += gallons;
+// };
 
-Car.prototype.fill = function(gallons) {
-  this.tank += gallons;
-};
-
-Car.prototype.drive = function(distance) {
-  this.odometer += distance;
-  this.tank = this.odometer / 10 / 2;
-};
+// Car.prototype.drive = function(distance) {
+//   this.odometer += distance;
+//   this.tank = this.odometer / 10 / 2;
+// };
+//---Old Code---
 
 /*
   TASK 3
